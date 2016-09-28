@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="bower_components/angular/angular.js"></script>
+</head>
+<body ng-controller="mycontroller">
+	
+	<script>
+		var app = angular.module('myapp',[]);
+		app.controller('mycontroller',['$scope','$timeout','$interval','$location',function($scope,$timeout,$interval,$location){
+			var timer = $timeout(function(){
+				console.log('结束');
+			},3000);
+
+			timer.then(function(){
+				console.log('运行成功后执行');
+			},function(){
+				console.log('运行失败后执行');
+			});
+
+			setTimeout(function(){
+				console.log('setTimeout结束');
+				$timeout.cancel(timer);
+			},4000);
+
+			var count = 0;
+			var inter = $interval(function(){
+				console.log('interval函数执行'+(++count));
+			},1000,4);
+
+			inter.then(function(){
+				console.log('interval执行成功');
+			},function(){
+				console.log('interval执行失败');
+			});
+
+			console.log($location.path());
+		}]);
+	</script>
+</body>
+</html>

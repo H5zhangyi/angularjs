@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="bower_components/angular/angular.js"></script>
+</head>
+<body ng-controller="mycontroller">
+	
+	<script>
+		var app = angular.module('myapp',[]);
+		app.controller('mycontroller',['$scope',function($scope){
+			var a = {name: 'hello'};
+			console.log("a"+a.name);
+			var b = a;
+			b.name = 'world';
+			console.log("a"+a.name);
+
+			var c = {name:'helloC'};
+			console.log(c.name);
+			// angular.copy 深度复制,复制品与源程序，完全分离开，互不影响
+			var d = angular.copy("c"+c);
+			d.name = 'worldC';
+			console.log("c"+c.name);
+
+			// 恒等判断 既判断类型也判断值 相当于'==='
+			angular.equals(1,'1');
+
+			// 大小写转换
+			angular.uppercase("aaa");
+			angular.lowercase("ASF");
+
+			// angular.forEach(arr,function(item,index){})
+			var testData = [
+				{name:"a"},
+				{name:"b"},
+				{name:"c"}
+			];
+			angular.forEach(testData,function(item,index){
+				console.log('第'+index+'个,'+item.name);
+			});
+
+			// angular.forEach(obj,function(value,key){})
+			var obj = {
+				name:"zhangsan",
+				old:"30",
+				sex:"男"
+			}
+			angular.forEach(obj,function(value,key){
+				console.log(key+":"+value);
+			})
+
+
+		}]);
+	</script>
+</body>
+</html>

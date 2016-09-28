@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <title>Google Phone Gallery</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+  <script src="bower_components/angular/angular.js"></script>
+   
+  </head>
+  <body ng-app>
+    <p>Hello {{"yinguit"}}</p>
+
+   <p>hello {{"world" + " " + "yinguit"}}</p>
+   <p>{{3 * 5}}</p>
+
+   <input type="text" ng-model="username">
+   <h1>{{username}}</h1>
+
+   <p ng-init="testname='hello'">{{testname}}</p>
+   <span ng-bind="testname"></span>
+   <span>{{testname}}</span>
+
+   <div ng-show="true">需要显示的内容</div>
+   <div ng-show="false">需要隐藏的内容</div>
+  
+  <input type="text" ng-model="isShow">
+  <div ng-show="isShow">通过用户文本输入来控制显示隐藏</div>
+  
+  <!-- <div ng-init="arr = ['hello','world','yinguit']"></div> -->
+  <div ng-init='objArr=[{"name":"zhang","age":20},{"name":"li","age":21},{"name":"lee","age":19}]'></div>
+  <ul >
+    <li ng-repeat="key in objArr">{{ "姓名:" + key.name + " , " + "年龄："+key.age}}</li>
+  </ul>
+
+   <script>
+    // console 会在ng模板之前运行，输出下模板
+     console.log( document.getElementsByTagName('body')[0].innerHTML );
+     /*
+     * ng-app  声明ng的控制范围
+     * 在某个标签上加了这个标识，标签之内的所有元素，都是ng可控制的 
+     * 在ng-app 范围内，所有的{{}}内部，都是js的脚本语言
+     *  可以像js语言一样，进行脚本运算，加减乘除
+     *
+     * ng-model  相当于js脚本中声明一个变量
+     * ng-model = "username"  &&  var username;
+     * 数据双向绑定，变量发生变化时，引用这个变量的地方，会同步变化
+     * 不需要像js或jQuery那样，处理dom节点
+     * 
+     * ng-init 初始化
+     * 相当于js脚本中，声明一个变量或初始化
+     * ng-init="username='hello'"  &&  var username='hello'; 
+     *
+     * ng-bind  对变量的引用
+     *  <span ng-bind="username"></span>  && <span>{{username}}</span>
+     *
+     * ng-show 显示或隐藏
+     * ng-show = "true||false"
+     *
+     * ng-repeat  遍历
+     * 相当于js脚本中的for in 序号操作
+     * ng-repeat 所在的标签，其内部都是需要循环的内容
+     *
+     * "use strict"; 严谨模式
+     */
+   </script>
+   <script>
+     var myapp = angular.module("ngday",[]);
+     myapp.controller("day01controller",function($scope){
+
+     });
+   </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+var myapp = angular.module('phones',['ngRoute']);
+myapp.config(['$routeProvider',function($routeProvider){
+	$routeProvider.when('/homepage',{
+		templateUrl:'view/homepageView.html',
+		controller:'homeContr'
+	}).when('/phones',{
+		templateUrl:'view/phonesView.html',
+		controller:'phonesContr'
+	}).when('/phones/:phonesid',{
+		templateUrl:'view/detailView.html',
+		controller:'detailContr'
+	}).when('/music',{
+		templateUrl:'view/musicView.html',
+		controller:'musicContr'
+	})
+	.otherwise({
+				redirectTo:'/homepage'
+		})
+}]);

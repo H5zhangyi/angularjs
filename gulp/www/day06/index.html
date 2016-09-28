@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="day06">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<!-- ng-app="day06" ng-app 是指angularjs可识别的范围 -->
+	<!-- controller里面依赖前置 ['$scope','$http'] -->
+	<div ng-controller="contro1">{{username+' '+count}}</div>
+
+	<script>
+		var myapp = angular.module('day06',[]);
+
+		myapp.controller('contro1',['$scope','$timeout','$interval',function($scope,$timeout,$interval){
+			// $scope 是model层的作用范围、作用域
+			
+			$timeout(function(){
+				// $scope.username="hello world 22222";
+			},3000);
+			// $scope 上挂载的所有model数据，都存在监听事件
+			// 数据发生变化的时候，ng会把数据同步到响应的dom节点上
+			// 相当于执行了一个onchange事件，然后做了dom操作
+
+			$scope.count=0;
+			$interval(function(){
+				$scope.count++;
+			},1000);
+
+			$scope.username="hello";
+			$scope.myclick = function(){
+				
+			}
+		}]);
+	</script>
+</body>
+</html>

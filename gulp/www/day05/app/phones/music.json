@@ -1,0 +1,42 @@
+[
+	{
+		"name":"我好想你",
+		"musicUrl":"music/music01.mp3"
+	},
+	{
+		"name":"学不会",
+		"musicUrl":"music/music02.mp3"
+	},
+	{
+		"name":"演员",
+		"musicUrl":"music/music03.mp3"
+	},
+	{
+		"name":"演员2",
+		"musicUrl":"music/music04.mp3"
+	},
+	{
+		"name":"风吹麦浪",
+		"musicUrl":"music/music05.mp3"
+	},
+	{
+		"name":"life-love and-faith",
+		"musicUrl":"music/music06.mp3"
+	},
+	{
+		"name":"伤声",
+		"musicUrl":"music/music07.mp3"
+	},
+	{
+		"name":"入戏太深",
+		"musicUrl":"music/music08.mp3"
+	},
+	{
+		"name":"违章动物",
+		"musicUrl":"music/music09.mp3"
+	},
+	{
+		"name":"秋殇别恋",
+		"musicUrl":"music/music10.mp3"
+	}
+]

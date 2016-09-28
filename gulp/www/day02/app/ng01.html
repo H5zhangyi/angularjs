@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="bower_components/angular/angular.js"></script>
+</head>
+<body ng-app>
+	<div ng-include="'header.html'"></div>
+	<div ng-init="arr=['aaa','bbb','ccc']"></div>	
+	<div ng-if="arr[0]==='aaa'">显示内容</div>
+	<div ng-if="arr[0]==='bbb'">隐藏内容</div>
+	<ul>
+		<li ng-repeat="str in arr" ng-if="$index>=1">{{str}}</li>
+	</ul>
+	<div ng-init="abc='className'"></div>
+	<div ng-class="abc">ng-class变量方式</div>
+
+	<div ng-init="obj={'cn1':true,'cn2':false,'cn3':true}"></div>
+	<div ng-class="obj">ng-class对象方式</div>
+
+	<div ng-init="arr1=['cn4','cn5','cn6']"></div>
+	<div ng-class="arr1">ng-class以数组方式</div>
+
+	<div ng-init="a=[{'cn1':false,'cn2':true},{'cn3':true}]"></div>
+	<div ng-class="a">ng-class以对象数组方式</div>
+
+	<ul ng-init="m='mmm';n='nnn'">
+		<li ng-repeat="str in arr" ng-class-odd="m" ng-class-even="n">{{str}}</li>
+	</ul>
+	
+	<!-- <img src="{{dfs}}dfjla" alt=""> -->
+	<img ng-src="{{dfs}}dfjla" alt="">
+
+	<div ng-init="mystyle={'fontSize':'20px','color':'red'}"></div>
+	<div ng-style="mystyle">ng-style演示</div>
+
+	
+	<div >
+	<label>全选演示</label><input type="checkbox" ng-model="checkAll">
+		全选
+	</div>
+		<label><input type="checkbox" ng-checked="checkAll">1</label>
+		<label><input type="checkbox" ng-checked="checkAll">2</label>
+		<label><input type="checkbox" ng-checked="checkAll">3</label>
+		<label><input type="checkbox" ng-checked="checkAll">4</label>
+		<label><input type="checkbox" ng-checked="checkAll">5</label>
+		<label><input type="checkbox" ng-checked="checkAll">6</label>
+		<hr>
+	<label>禁用演示</label><input type="checkbox" ng-model="use">
+	<input type="text" ng-disabled="use">
+	<input type="text" ng-disabled="use">
+	<input type="text" ng-disabled="use">
+
+	<select>
+		<option value="0">请选择</option>
+		<option value="1" ng-selected="true">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+	</select>
+	
+	<input type="text" ng-readonly="true">
+
+	<div>
+		<label>ng-switch ng-switch-when  && switch case</label>
+		请输入查找内容：<input type="text" ng-model="switchVal">
+		<br>
+		<div ng-switch="switchVal">
+			<div ng-switch-when="1601">输入1601显示</div>
+			<div ng-switch-when="1602">输入1602显示</div>
+		</div>
+	</div>
+
+	
+	<script>
+		// ng-if 布尔值，表达式判断，true的时候显示此标签内容
+		// $index 获得当前的数组下标，只在ng-repeat中有效
+		// ng-include 引用外部的html
+		// ng-include=' "/include/index.html" ' 需要服务器支持
+		// ng-class 存放class ng-class="表达式"
+		// 表达式可以是：变量，对象，数组，对象数组
+		// 对象里面{'className':Boolean值}
+
+		// ng-class-odd 显示奇数元素对应的class
+		// ng-class-even  
+
+		// ng-style 样式指令 后面的表达式是对象
+
+		// ng-src 跟img src的属性基本一致，如果ng-src的值有问题，不会发起请求
+		// 更换图片的时候，直接修改ng-src的表达式值，不需要获取节点，修改src
+
+		// ng-href 用法与ng-src用法基本一致,比直接href更安全
+
+		// ng-checked 单选或多选 值为true时，自动勾选
+
+		// ng-disabled 设置输入框为不可用状态 值为true false
+
+		// ng-selected 选中某个option 用法同上
+
+		// ng-readonly 只读属性 ， 样式上一样，只是不能修改
+
+		// ng-switch ng-switch-when  && switch case
+		// ng-switch-when 值为true时显示相应
+
+	</script>
+</body>
+</html>

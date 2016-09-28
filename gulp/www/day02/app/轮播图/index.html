@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myapp" ng-controller="mycontroller">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{ margin: 0;padding: 0; }
+		.box{ width:300px;height:200px;margin: 100px auto;position:relative;
+			border:1px solid black; }
+		.box>a{ display: block;width:300px;height:200px;position: absolute; 
+			top:0px;left:0px;}
+		.box>a>img{ width:300px;height:200px; }
+	</style>
+	<script src="../bower_components/angular/angular.js"></script>
+</head>
+<body>
+	<div class="box">
+		<a href="#" ng-repeat="item in imgArr" ng-style="showIndex==$index?showStyle:''">
+			<img ng-src="{{item.imgUrl}}" alt="{{item.alt}}">
+		</a>
+	</div>
+
+	<script>
+		var myapp = angular.module('myapp',[]);
+		myapp.controller('mycontroller',function($rootScope,$interval,$http){
+			$rootScope.showIndex = 0;
+			$rootScope.showStyle = {'z-index':'1'};
+			
+			$http({
+				url: 'http://10.48.0.41:3000/User/getImgSlide',
+				type:"post",
+				params:{
+				id:"1601",
+				name:'yinguit'
+				}
+			}).success(function(res){
+				$rootScope.imgArr = res.result;
+				var timer = $interval(function(){
+					$rootScope.showIndex++;
+					if($rootScope.showIndex >= $rootScope.imgArr.length-1){
+						$rootScope.showIndex=0;
+					}
+				},1000);
+			});
+		});
+	</script>
+</body>
+</html>
