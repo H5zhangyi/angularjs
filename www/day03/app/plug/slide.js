@@ -15,7 +15,7 @@ var myapp = angular.module('day03',[]);
 							id:"1601",
 							name:"yinguit"
 						}
-					}).success(function(res){
+					}).success(function(res)	{
 						$scope.test="skfds";
 						$scope.imgArr = res.result;
 						$scope.showIndex = 0;

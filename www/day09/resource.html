@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+</head>
+<body>
+	<div ng-controller="myController"></div>
+	<script>
+		var app = angular.module('myapp',['ngResource']);
+		app.controller('myController',['$scope','$resource','$http',function($scope,$resource,$http){
+			// $resource('接口地址','{key:value}')
+			var Info = $resource('test.json',{username:'@name'});
+			// http request response
+			Info.get({name:'yingu'},function(response){
+				console.log(response);
+			},function(error){
+				console.log(error);
+			});
+
+			$http({
+				url: 'test.json',
+				method: 'get', // get post put delete
+				params: {
+					name: 'yingu'
+				}
+			}).success(function(reponse){
+				console.log('http请求');
+				console.log(reponse);
+			}).error(function(error){
+				console.log(error);
+			})
+		}]);
+	</script>
+</body>
+</html>
